@@ -13,10 +13,9 @@ namespace Discord_Timestamp_generator
     public partial class Form1 : Form
     {
         DateTime time;
-
+        DateTime date;
         string type;
 
-        DateTime date;
         public Form1()
         {
             InitializeComponent();
@@ -24,12 +23,12 @@ namespace Discord_Timestamp_generator
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            comboBox1.Text = "Choose your timestamp type";
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             time = dateTimePicker2.Value;
-
 
             type = comboBox1.Text;
 
@@ -62,8 +61,12 @@ namespace Discord_Timestamp_generator
                     textBoxOutput.Text = "Your output will be there";
                     break;
             }
+        }
 
-            
+        private void buttonCopy_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(textBoxOutput.Text);
+            labelCopy.Text = "Copied";
         }
     }
 }
